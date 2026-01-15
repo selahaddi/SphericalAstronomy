@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# 🌌 Küresel Astronomi Simülasyonu (Spherical Astronomy App)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, lisans düzeyindeki Küresel Astronomi dersleri için geliştirilmiş etkileşimli bir **3 Boyutlu Problem Çözme ve Simülasyon** aracıdır.
 
-Currently, two official plugins are available:
+Modern web teknolojileri (React, Three.js) kullanılarak geliştirilen uygulama, öğrencilerin soyut küresel geometri kavramlarını görselleştirmelerine ve karmaşık problemleri (Alan hesabı, Koordinat dönüşümleri, Gün doğumu simülasyonu) interaktif olarak çözmelerine olanak tanır.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Özellikler
 
-## React Compiler
+Uygulama üç ana problem çözme modu içerir:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Küresel Üçgen ve Alan Hesabı 📐
+*   Kullanıcı küre üzerinde noktalar seçerek üçgen oluşturabilir veya verileri manuel girebilir.
+*   **İkizkenar Küresel Üçgenler** için özel çözücü.
+*   **Küresel Fazla (Spherical Excess)** ve **Yüzey Alanı (km²)** hesabı.
+*   Sonuçlar sürüklenebilir bir panelde gösterilir.
 
-## Expanding the ESLint configuration
+### 2. P-Z-S Üçgeni ve Koordinat Dönüşümü 🔄
+*   Ekvatoral Sistemden (Dik Açıklık, Saat Açısı) Ufuk Sistemine (Yükseklik, Azimut) dönüşümü görselleştirir.
+*   **Navigasyon Üçgeni (P-Z-S)** elemanlarını (Kutup, Zenit, Yıldız) dinamik olarak çizer.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. Güneş Doğuş/Batış Simülasyonu (Kayseri) 🌅
+*   Belirli bir enlem ve tarih için Güneş'in günlük hareketini (Günlük Çember) simüle eder.
+*   **Atmosferik Kırılma (Refraction)** etkisini (-50') dikkate alarak doğuş/batış saatlerini hesaplar.
+*   **Zaman ve Tarih Kaydırıcıları:** Kullanıcı tarihi değiştirerek mevsimsel etkileri, saati değiştirerek Güneş'in hareketini animasyonlu olarak izleyebilir.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Teknolojiler
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+*   **Frontend:** React (Vite)
+*   **3D Motoru:** React Three Fiber (Three.js)
+*   **UI/Animasyon:** Framer Motion, Tailwind CSS
+*   **Matematik:** Özel Küresel Trigonometri kütüphanesi
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 💻 Kurulum
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Projeyi yerel ortamınızda çalıştırmak için:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1.  Depoyu klonlayın:
+    ```bash
+    git clone https://github.com/KULLANICI_ADINIZ/celestial-sphere-app.git
+    cd celestial-sphere-app
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  Bağımlılıkları yükleyin:
+    ```bash
+    npm install
+    ```
+
+3.  Uygulamayı başlatın:
+    ```bash
+    npm run dev
+    # Veya hazır script ile:
+    # ./baslat.bat
+    ```
+
+## 📝 Lisans
+
+Bu proje eğitim amaçlı geliştirilmiştir. Serbestçe kullanılabilir ve değiştirilebilir.
